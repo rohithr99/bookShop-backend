@@ -24,8 +24,8 @@ getAllProducts = () => {
 }
 
 //single product logic
-getProduct = (id) => {
-    return allProducts.Product.findOne({id: id}).then(item => {
+getProduct = (sl) => {
+    return allProducts.Product.findOne({sl: sl}).then(item => {
         if(item){
             return {
                 message: "product loaded successfully",

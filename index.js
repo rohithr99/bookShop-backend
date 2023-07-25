@@ -49,8 +49,8 @@ server.get('/qMart/products',(req,res) => {
 })
 
 //get details of a single product
-server.get('http://localhost:8000/qMart/products/:id',(req,res) => {
-    productLogic.getProduct(req.params.id).then(result => {
+server.get('/qMart/products/:sl',(req,res) => {
+    productLogic.getProduct(req.params.sl).then(result => {
         res.status(result.statusCode).json(result);
     })
 })

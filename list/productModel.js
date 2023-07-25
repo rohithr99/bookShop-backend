@@ -6,7 +6,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/bookshop')
 
 //model for collection Users
 const Product = mongoose.model('Product',{
-   id : Number,
+   sl : Number,
    name : String,
    category : String,
    description : String,
