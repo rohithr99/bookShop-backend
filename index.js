@@ -54,3 +54,10 @@ server.get('/qMart/products/:sl',(req,res) => {
         res.status(result.statusCode).json(result);
     })
 })
+
+//add to cart 
+server.post('/qMart/cart',(req,res) => {
+    logic.addToCart(req.body.sl,req.body.phone).then(result => {
+        res.status(result.statusCode).json(result);
+    })
+})

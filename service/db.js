@@ -10,7 +10,12 @@ const User = mongoose.model('User',{
     email : String,
     phone : Number,
     passwd : String,
+    cart : []
 })
+
+
+//model for add to cart
+
 
 //export model
 module.exports = {

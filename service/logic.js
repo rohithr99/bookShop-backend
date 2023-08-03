@@ -17,7 +17,8 @@ register = (username,email, phone, passwd) => {
                 username: username,
                 email: email,
                 phone: phone,
-                passwd: passwd
+                passwd: passwd,
+                cart:[]
             })
 
             // to reflect the changes made by the server in database
@@ -57,9 +58,29 @@ login = (username,passwd) => {
 }
 
 
-//view all products
+//add to cart logic
+addToCart = (sl,phone) =>{
+    return database.User.findOne({phone}).then(user => {
+        if(user){
+            user.cart.push(sl);
+            user.save();
+            
+            return {
+                message:"added to cart",
+                status: true,
+                statusCode: 200
+            }
+        }else{
+            return {
+                message: "no user found",
+                status: false,
+                statusCode: 404
+            }
+        }
+    })
+}
 
 
 module.exports = {
-    register,login
+    register,login, addToCart
 }
