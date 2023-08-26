@@ -57,7 +57,30 @@ server.get('/qMart/products/:sl',(req,res) => {
 
 //add to cart 
 server.post('/qMart/cart',(req,res) => {
-    logic.addToCart(req.body.sl,req.body.phone).then(result => {
+    logic.addToCart(req.body.sl,req.body.phone,req.body.image,req.body.name,req.body.price).then(result => {
         res.status(result.statusCode).json(result);
+    })
+})
+
+//display cart data
+server.get('/qMart/cartPage/:phone',(req,res) => {
+    logic.getCartDetails(req.params.phone).then(result => {
+        res.status(result.statusCode).json(result);
+    })
+})
+
+//delete cart item
+// server.delete('/qMart/deleteCart/:sl',(req,res) => {
+//     logic.deleteCartItem(req.params.sl).then(result => {
+//         res.status(result.statusCode).json(result);
+//     })
+// })
+
+
+
+
+server.delete('/qMart/deleteCart/:sl',(req,res) => {
+    logic.deleteCartItem(req.params.sl).then(result => {
+        res.status().json(result);
     })
 })
